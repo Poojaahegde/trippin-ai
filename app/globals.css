@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+}
+
+@layer components {
+  /* ─── Card ─────────────────────────────────────────────────────────── */
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-slate-100 p-5;
+  }
+
+  .card-hover {
+    @apply card transition-shadow hover:shadow-card-hover cursor-pointer;
+  }
+
+  /* ─── Pill badges by category ──────────────────────────────────────── */
+  .badge-Eat        { @apply bg-orange-100 text-orange-700; }
+  .badge-Coffee     { @apply bg-amber-100 text-amber-700; }
+  .badge-Explore    { @apply bg-emerald-100 text-emerald-700; }
+  .badge-Stay       { @apply bg-violet-100 text-violet-700; }
+  .badge-Shop       { @apply bg-pink-100 text-pink-700; }
+  .badge-Nightlife  { @apply bg-indigo-100 text-indigo-700; }
+  .badge-Viewpoint  { @apply bg-sky-100 text-sky-700; }
+  .badge-Beach      { @apply bg-cyan-100 text-cyan-700; }
+  .badge-Activity   { @apply bg-lime-100 text-lime-700; }
+
+  /* ─── Map overrides ─────────────────────────────────────────────────── */
+  .leaflet-container {
+    @apply rounded-2xl;
+    z-index: 0;
+  }
+
+  .leaflet-popup-content-wrapper {
+    @apply rounded-xl shadow-card-hover;
+  }
+
+  /* ─── Prose headings ────────────────────────────────────────────────── */
+  .prose-trippin h2 {
+    @apply text-2xl font-bold text-slate-900 mt-8 mb-3;
+  }
+
+  .prose-trippin h3 {
+    @apply text-lg font-semibold text-slate-800 mt-6 mb-2;
+  }
+
+  .prose-trippin p {
+    @apply text-slate-600 leading-relaxed mb-4;
+  }
+
+  .prose-trippin ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-1;
+  }
+}
+
+/* ─── Skeleton loading ──────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
